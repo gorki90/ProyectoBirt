@@ -1,0 +1,219 @@
+/* 
+#007F73 primary darktheme
+#CDFAD5 prymary lighttheme 
+*/
+
+body{
+    background: black;
+    color: white;
+}
+
+
+/* Estilos de la barra de navegación */
+.navbar{
+background-color: #007F73;
+}
+
+.nav-link{
+    color:white;
+    font-size: larger;
+    font-weight: bolder;
+    margin-left: 2rem;
+}
+
+.nav-link:hover{
+    color: #CDFAD5;
+    transform: scale(1.2);
+}
+
+.nav-link:focus{
+    color: #CDFAD5;
+    transform: scale(1.2);
+}
+
+.img-fluid{
+border-radius: 50px;
+}
+
+.w-25{
+    width: 3% !important;
+}
+
+.img-fluid:hover{
+    transform: scale(1.2);
+}
+
+
+/* Estilos de la página inicio */
+
+.fondoDark{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url('/assets/img/bosqueDark.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.fondoLight{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url('/assets/img/bosqueLight.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.descInicio{
+    position: relative;
+    margin-top: 8rem;
+}
+
+.descInicio .descr{
+    display: block;
+    margin-top: 6rem;
+}
+
+.btn-container{
+    display: flex;
+    justify-content:space-evenly;
+    margin-top: 10rem;
+    width: 100%;
+}
+
+
+/* Estilos de la página ayuda */
+
+.titAyuda{
+    
+    margin-bottom: 2rem;
+}
+
+.contAyuda{
+    margin-top: 6rem;
+}
+
+.accordion .accordion-button{
+    background-color: #007F73;
+    color: white;
+}
+
+.accordion .accordion-body{
+    background-color: #CDFAD5;
+    color:black;
+}
+
+.guias{
+    display: inline-block;
+    width: auto;
+    margin-top: 1rem;
+}
+
+.guia{
+text-decoration: none;
+align-items: center;
+color: white;
+font-size: larger;
+font-weight: bolder;
+}
+
+.guia:hover{
+    color: #007F73;
+    transform: scale(1.2);
+}
+
+
+/* Estilos componente perfil */
+
+.form-check{
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  .form-check .form-check-label{
+    margin-left: 1rem;
+  }
+
+  .perfilForm input{
+    background-color: #007F73;
+    color: white;
+    border:none;
+    margin:0 auto;
+
+}
+
+.perfilForm input:focus{
+    background-color: #CDFAD5;
+    color: black;
+}
+
+.perfilForm label{
+    font-size: larger;
+}
+
+.part2{
+    margin-top: 2rem;
+}
+
+/* Estilos del componente Acceso */
+.login{
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+}
+
+.acceso input{
+    background-color: #007F73;
+    color: white;
+    border:none;
+    width: 50%;
+    margin:0 auto;
+
+}
+
+.acceso input:focus{
+    background-color: #CDFAD5;
+    color: black;
+}
+
+.acceso label{
+    font-size: larger;
+}
+
+.btn{
+    background-color: #007F73;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 50px;
+    margin-top: 2rem;
+    display: block;
+    margin: 0 auto;
+    width: 25rem;
+}
+
+.btn:hover{
+    background-color:#CDFAD5 ;
+    color: black;
+    font-weight: bolder;
+}
+
+.solicitarAcceso{
+    margin-top: 2rem;
+}
+
+.solicitarAcceso:hover{
+    color: #007F73;
+    cursor: pointer;
+}
+
+.btn-acceso{
+    margin-top: 2rem;
+}

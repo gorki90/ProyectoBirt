@@ -1,0 +1,10 @@
+<p>mostrar-atributos works!</p>
+<div *ngIf="attributes">
+  <h3>Atributos del Árbol</h3>
+  <ul>
+    <li *ngFor="let key of attributeKeys">
+      <strong>{{ key }}:</strong> {{ attributes[key] }}
+    </li>
+  </ul>
+</div>
+<button (click)="mapaWFS()">MAPA WFS</button>
