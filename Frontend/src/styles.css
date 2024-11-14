@@ -1,6 +1,6 @@
 /* 
 #007F73 primary darktheme
-#CDFAD5 prymary lighttheme 
+##8BD3A0 prymary lighttheme 
 */
 
 body{
@@ -22,12 +22,12 @@ background-color: #007F73;
 }
 
 .nav-link:hover{
-    color: #CDFAD5;
+    color: #8BD3A0;
     transform: scale(1.2);
 }
 
 .nav-link:focus{
-    color: #CDFAD5;
+    color: #8BD3A0;
     transform: scale(1.2);
 }
 
@@ -89,6 +89,86 @@ border-radius: 50px;
     width: 100%;
 }
 
+/* Estilos botones menu Datos */
+
+.btn-group1{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn-menu{
+    background-color: #007F73;
+    border: 1px solid #8BD3A0;
+    padding: 1.5rem;
+    color: white;
+    width: 16rem;
+    height: 6rem;
+}
+
+.btn-menu:hover{
+    background-color: #8BD3A0; /*#8BD3A0*/
+    color: black;
+    transform: scale(1.2);
+    border:3px solid #007F73;
+    
+}
+
+.btn-menu:focus{
+    background-color: #8BD3A0;
+    color: black;
+    transform: scale(1.2);
+}
+
+/* Estilos botones footer */
+
+.btn-group2{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.btn-footer{
+    background-color: #007F73;
+    border: none;
+    padding: 1.5rem;
+    color: white;
+    border-radius: 2rem;
+    width: 10rem;
+}
+
+.btn-footer:hover{
+    background-color: #8BD3A0;
+    color: black;
+    transform: scale(1.2);
+}
+
+
+/* Estilos componente datos_identificacion */
+
+.datosForm{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.datosForm input, .form-select, .form-control{
+    background-color: #007F73;
+    color: white;
+    border:none;
+    margin:0 auto;
+}
+
+.datosForm input:focus, 
+.datosForm .form-select:focus, 
+.datosForm .form-control:focus {
+    background-color: #8BD3A0;
+    color: black;
+}
+
+.datosForm label{
+    font-size: larger;
+}
+
 
 /* Estilos de la página ayuda */
 
@@ -101,13 +181,18 @@ border-radius: 50px;
     margin-top: 6rem;
 }
 
+.copyEmail:hover{
+color:#007F73;
+cursor:pointer;
+}
+
 .accordion .accordion-button{
     background-color: #007F73;
     color: white;
 }
 
 .accordion .accordion-body{
-    background-color: #CDFAD5;
+    background-color: #8BD3A0;
     color:black;
 }
 
@@ -151,7 +236,7 @@ font-weight: bolder;
 }
 
 .perfilForm input:focus{
-    background-color: #CDFAD5;
+    background-color: #8BD3A0;
     color: black;
 }
 
@@ -179,7 +264,7 @@ font-weight: bolder;
 }
 
 .acceso input:focus{
-    background-color: #CDFAD5;
+    background-color: #8BD3A0;
     color: black;
 }
 
@@ -200,7 +285,7 @@ font-weight: bolder;
 }
 
 .btn:hover{
-    background-color:#CDFAD5 ;
+    background-color:#8BD3A0 ;
     color: black;
     font-weight: bolder;
 }
