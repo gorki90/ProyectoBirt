@@ -72,6 +72,35 @@ border-radius: 50px;
     z-index: -1;
 }
 
+@keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(10px);
+    }
+  }
+
+.img-init-cont{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.img-init{
+width: 10rem;
+border-radius: 80px;
+transition: transform 0.5s ease;
+}
+
+.img-init:hover{
+    animation: shake 2s ease-in-out;
+    animation-iteration-count: 1;
+}
+
 .descInicio{
     position: relative;
     margin-top: 8rem;
@@ -79,13 +108,13 @@ border-radius: 50px;
 
 .descInicio .descr{
     display: block;
-    margin-top: 6rem;
+    margin-top: 2rem;
 }
 
 .btn-container{
     display: flex;
     justify-content:space-evenly;
-    margin-top: 10rem;
+    margin-top: 6rem;
     width: 100%;
 }
 
@@ -108,7 +137,8 @@ border-radius: 50px;
 
 .btn-menu:hover{
     background-color: #8BD3A0; /*#8BD3A0*/
-    color: black;
+    color: #007F73;
+    font-weight: bolder;
     transform: scale(1.2);
     border:3px solid #007F73;
     
@@ -116,8 +146,9 @@ border-radius: 50px;
 
 .btn-menu:focus{
     background-color: #8BD3A0;
-    color: black;
-    transform: scale(1.2);
+    color: #007F73;
+    font-weight: bolder;
+    border:4px solid #007F73;
 }
 
 /* Estilos botones footer */
@@ -139,12 +170,12 @@ border-radius: 50px;
 
 .btn-footer:hover{
     background-color: #8BD3A0;
-    color: black;
+    color: #007F73;
     transform: scale(1.2);
 }
 
 
-/* Estilos componente datos_identificacion */
+/* Estilos componente datos-* */
 
 .datosForm{
     margin-top: 2rem;
@@ -167,6 +198,12 @@ border-radius: 50px;
 
 .datosForm label{
     font-size: larger;
+}
+
+.datosForm .textAreaAcciones {
+    resize: vertical;
+    height: 8rem;
+    width: 100%;
 }
 
 
@@ -286,7 +323,7 @@ font-weight: bolder;
 
 .btn:hover{
     background-color:#8BD3A0 ;
-    color: black;
+    color: #007F73;
     font-weight: bolder;
 }
 

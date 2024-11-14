@@ -1,1 +1,43 @@
-<p>datos_actuaciones works!</p>
+<app-datos_menu></app-datos_menu>
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <form class="datosForm">
+            <label for="accion" class="form-label">Tipo de acción</label>
+            <select class="form-select mb-3" name="accion" id="accion" aria-label="Tipo de acción">
+                <option value="0" selected>Acc1</option>
+                <option value="1">Acc2</option>
+                <option value="2">Acc3</option>
+                <option value="3">Acc4</option>
+              </select> 
+              <label class="form-label" for="floatingTextarea">Notas sobre la acción</label>
+              <div class="form-floating mb-3">
+                <textarea class="form-control textAreaAcciones"  placeholder="Escribe aquí las notas" id="floatingTextarea"></textarea>
+              </div>
+          </form>
+      </div>
+      <div class="col">
+        <form class="datosForm">
+            <div class="mb-3">
+              <label for="fecha" class="form-label">Fecha</label>
+              <input type="text" class="form-control" id="fecha" name="fecha">
+            </div>
+            <label for="prioridad" class="form-label">Prioridad</label>
+            <select class="form-select mb-3" name="prioridad" id="prioridad" aria-label="Prioridad">
+                <option value="0" selected>Baja</option>
+                <option value="1">Normal</option>
+                <option value="2">Alta</option>
+                <option value="3">Urgente</option>
+              </select> 
+              <label for="estAct" class="form-label">Estado de la acción</label>
+            <select class="form-select mb-3" name="estAct" id="estAct" aria-label="estAct">
+                <option value="0" selected>Iniciada</option>
+                <option value="1">No iniciada</option>
+                <option value="2">Programada</option>
+                <option value="3">Por determinar</option>
+              </select>
+          </form>
+    </div>
+
+<app-datos_menufooter></app-datos_menufooter>
