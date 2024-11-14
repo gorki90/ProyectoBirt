@@ -77,10 +77,22 @@ border-radius: 50px;
       transform: translateX(0);
     }
     10%, 30%, 50%, 70%, 90% {
-      transform: translateX(-10px);
+      transform: translateX(10px);
     }
     20%, 40%, 60%, 80% {
-      transform: translateX(10px);
+      transform: translateX(-10px);
+    }
+  }
+
+  @keyframes shake2 {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    10%, 90% {
+      transform: translateY(10px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateY(-10px);
     }
   }
 
@@ -116,6 +128,47 @@ transition: transform 0.5s ease;
     justify-content:space-evenly;
     margin-top: 6rem;
     width: 100%;
+}
+
+/* Estilos componente arboles */
+
+
+.card{
+    background-color: #007F73;
+    color:white;
+    margin-top: 2rem;
+    
+}
+
+.img-card{
+    max-width: min-content;
+}
+
+.card-title{
+    font-weight: bolder;
+}
+
+.card:hover{
+    background-color: #8BD3A0;
+    animation: shake2 2s ease-in-out;
+    color: #007F73;
+    font-weight: bolder;
+}
+
+.btn-cards{
+    background-color: #8BD3A0;
+    color: #007F73;
+    border-radius: 50px;
+    border: 1px solid #007F73;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    font-weight: bolder;
+}
+
+.btn-cards:hover{
+background-color: #007F73;
+color: white;
+font-weight: bolder;
 }
 
 /* Estilos botones menu Datos */
