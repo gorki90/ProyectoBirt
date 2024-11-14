@@ -3,15 +3,29 @@
 ##8BD3A0 prymary lighttheme 
 */
 
-body{
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
     background: black;
     color: white;
 }
 
+.nav-link,h1{
+    font-family: "Lora", serif;
+}
+
+h2,h3,h4,p,label{
+    font-family: "Noro Sans", sans-serif;
+}
 
 /* Estilos de la barra de navegación */
+
+
 .navbar{
 background-color: #007F73;
+opacity: 0,5;
 }
 
 .nav-link{
@@ -177,12 +191,13 @@ font-weight: bolder;
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    justify-items: center;
 }
 
 .btn-menu{
     background-color: #007F73;
     border: 1px solid #8BD3A0;
-    padding: 1.5rem;
+   
     color: white;
     width: 16rem;
     height: 6rem;
@@ -215,7 +230,10 @@ font-weight: bolder;
 .btn-footer{
     background-color: #007F73;
     border: none;
-    padding: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     color: white;
     border-radius: 2rem;
     width: 10rem;
@@ -371,13 +389,16 @@ font-weight: bolder;
     margin-top: 2rem;
     display: block;
     margin: 0 auto;
-    width: 25rem;
+    width: 30vw;
+    padding: 1rem;
+    font-size: larger;
 }
 
 .btn:hover{
     background-color:#8BD3A0 ;
     color: #007F73;
     font-weight: bolder;
+    transform: scale(1.2);
 }
 
 .solicitarAcceso{
