@@ -28,6 +28,10 @@ background-color: #007F73;
 opacity: 0,5;
 }
 
+.navbar-toggler{
+    color: #8BD3A0;
+}
+
 .nav-link{
     color:white;
     font-size: larger;
@@ -71,6 +75,7 @@ border-radius: 50px;
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    animation: kenburns-top 1s ease-out 2 alternate both;
 }
 
 .fondoLight{
@@ -110,6 +115,46 @@ border-radius: 50px;
     }
   }
 
+  @keyframes focus-in-expand-fwd {
+    0% {
+      letter-spacing: -2.5em;
+      -webkit-transform: translateZ(-800px);
+              transform: translateZ(-800px);
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+      color: #007F73;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      -webkit-filter: blur(0);
+              filter: blur(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes kenburns-top {
+    0% {
+      -webkit-transform: scale(1) translateY(0);
+              transform: scale(1) translateY(0);
+      -webkit-transform-origin: 50% 16%;
+              transform-origin: 50% 16%;
+    }
+    100% {
+      -webkit-transform: scale(1.25) translateY(-15px);
+              transform: scale(1.25) translateY(-15px);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+    }
+  }
+  
+
+.tit-app{
+ animation: focus-in-expand-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+
 .img-init-cont{
     display: flex;
     margin-top: 2rem;
@@ -120,6 +165,7 @@ border-radius: 50px;
 width: 10rem;
 border-radius: 80px;
 transition: transform 0.5s ease;
+
 }
 
 .img-init:hover{
@@ -142,6 +188,144 @@ transition: transform 0.5s ease;
     justify-content:space-evenly;
     margin-top: 6rem;
     width: 100%;
+}
+
+/* Estilos mapa */
+
+.ol-zoom .ol-zoom-in{
+    background-color: #007F73;
+    color: white;
+    border-color: #8BD3A0;
+}
+
+.ol-zoom .ol-zoom-out{
+    background-color: #007F73;
+    color: white;
+    border-color: #8BD3A0;
+}
+
+
+.ol-zoom .ol-zoom-in:hover{
+    background-color: #8BD3A0;
+    color: #007F73;
+    border-color: #8BD3A0;
+    transform: scale(1.2);
+    border-color: #007F73;
+}
+
+
+.ol-zoom .ol-zoom-out:hover{
+    background-color: #8BD3A0;
+    color: #007F73;
+    border-color: #8BD3A0;
+    transform: scale(1.2);
+    border-color: #007F73;
+}
+
+.contMapa{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-mapa{
+    background-color: #007F73;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 5px;
+    width: 13vw;
+}
+
+.btn-mapa:hover{
+    background-color:#8BD3A0 ;
+    color: #007F73;
+    font-weight: bolder;
+}
+
+
+
+/* Estilos tareas componente */
+.filtro{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-filtro{
+    background-color: #007F73;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2rem;
+    width: 13vw;
+    
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.btn-filtro:hover{
+    background-color:#8BD3A0 ;
+    color: #007F73;
+    font-weight: bolder;
+}
+
+.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+    color: white;
+    background-color: #007F73;
+    font-weight: bolder;
+}
+
+.dropdown-menu{
+    background-color: #007F73;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+.dropdown-menu:hover{
+    background-color: rgba(0, 127, 115, 0.7);
+}
+
+.dropdown-menu .dropdown-item{
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown-menu .dropdown-item:hover{
+    color:black;
+    transform: scale(1.1);
+    background-color: #8BD3A0;
+}
+    
+.tareas-img{
+    max-width: 10%;
+}
+
+.list-group{
+    margin-top: 2rem;
+}
+
+.list-group-item{
+    background-color: #007F73;
+    color: white;
+}
+
+.list-group-item:hover{
+    background-color: #8BD3A0;
+    color: #007F73;
+    font-weight: bolder;
+}
+
+.tareasLista{
+display: flex;
+align-items: center;
+}
+
+.form-check-input:checked{
+    background-color: #00FF7F;
+    border-color: #00FF7F;
+}
+
+.form-check-input{
+    background-color: black;
 }
 
 /* Estilos componente arboles */
@@ -380,6 +564,12 @@ font-weight: bolder;
     font-size: larger;
 }
 
+@media (max-width: 768px) {
+    button.btn{
+        width: 30vw; 
+    }
+}
+
 .btn{
     background-color: #007F73;
     color: white;
@@ -389,9 +579,11 @@ font-weight: bolder;
     margin-top: 2rem;
     display: block;
     margin: 0 auto;
-    width: 30vw;
-    padding: 1rem;
-    font-size: larger;
+    width: 15vw;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .btn:hover{
@@ -412,4 +604,17 @@ font-weight: bolder;
 
 .btn-acceso{
     margin-top: 2rem;
+}
+
+
+/* Media queries */
+
+@media (max-width: 768px) {
+    .w-25 {
+        width: 10% !important;
+    }
+
+    .tareas-img {
+        max-width: 50%;
+    }
 }

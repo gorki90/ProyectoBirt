@@ -1,7 +1,31 @@
-<p>map works!</p>
-<div id="map" class="map"></div>
-<H1>MAPA de LARAVEL (puntos sin interacción)</H1>
-<button>CALLE/CIUDAD</button>
-<button>BUSCAR</button>
-<button>CÓDIGO ÁRBOL</button>
-<button>BUSCAR</button>
+<h1 class="text-center">Mapa</h1>
+<div id="map" class="map container-fluid"></div>
+
+
+ <h1 class="text-center">Mapa de Laravel (puntos sin interacción)</h1>
+
+<div class="container-fluid contMapa">
+    <div class="row">
+        <div class="col">
+            <div class="container-fluid">
+                <form class="d-flex datosForm" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Calle/Ciudad" aria-label="Search">
+                  <button class="btn-mapa btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+        </div>
+        <div class="col">
+            <div class="container-fluid">
+                <form class="d-flex datosForm" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Código árbol" aria-label="Search">
+                  <button class="btn-mapa btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    
+
