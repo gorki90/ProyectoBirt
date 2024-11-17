@@ -1,0 +1,30 @@
+<p>formulario-principal works!</p>
+<form [formGroup]="treeForm" (ngSubmit)="onSubmit()">
+    <app-location-data *ngIf="currentSection === 'locationData'" 
+    [formGroup]="localizacion">
+    </app-location-data>
+    <!-- Sección de Datos dasométricos -->
+    <app-dasometric-data *ngIf="currentSection === 'dasometricData'" 
+    [formGroup]="dasometria">
+    </app-dasometric-data>
+    
+    <!-- Sección de Estado Sanitario -->
+    <app-health-status *ngIf="currentSection === 'healthStatus'" 
+      [formGroup]="estadoSanitario">
+    </app-health-status>
+  
+    <!-- Sección de Tareas -->
+    <app-tasks *ngIf="currentSection === 'tasks'" 
+      [formGroup]="treeForm">
+    </app-tasks>
+
+    <!-- Botón para cambiar entre secciones -->
+    <button class="btn d-inline-block" type="button" (click)="setSection('locationData')"><i class="fa-solid fa-map fa-xl"></i> Datos Identificacion-localizacion</button>
+    <button class="btn d-inline-block" type="button" (click)="setSection('dasometricData')"><i class="fa-solid fa-map fa-xl"></i> Datos Dasométricos</button>
+    <button class="btn d-inline-block" type="button" (click)="setSection('healthStatus')"><i class="fa-solid fa-map fa-xl"></i> Estado Sanitario</button>
+    <button class="btn d-inline-block" type="button" (click)="setSection('tasks')"><i class="fa-solid fa-map fa-xl"></i> Tareas</button>
+  
+    <!-- Botón para enviar el formulario -->
+    <button class="btn d-inline-block" type="submit">Guardar<i class="fa-solid fa-map fa-xl"></i></button>
+  </form>
+  
