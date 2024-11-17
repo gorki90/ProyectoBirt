@@ -1,0 +1,77 @@
+<p>dasometric-data works!</p>
+<form [formGroup]="formGroup">
+    <div>
+      <label for="altura">Altura(m):</label>
+      <input id="altura" formControlName="altura" type="number">
+    </div>
+    <div>
+      <label for="diametro">Diámetro(cm):</label>
+      <input id="diametro" formControlName="diametro" type="number">
+    </div>
+    <div>
+      <label for="altura_primera_rama">altura_primera_rama(m):</label>
+      <input id="altura_primera_rama" formControlName="altura_primera_rama" type="number">
+    </div>
+    <div>
+      <label for="morfologia">morfologia:</label>
+      <input id="morfologia" formControlName="morfologia" type="text">
+    </div>
+    <div>
+      <label for="tipo_alcorque">tipo_alcorque:</label>
+      <input id="tipo_alcorque" formControlName="tipo_alcorque" type="text">
+    </div>
+    <div>
+      <label for="disposicion">disposicion:</label>
+      <input id="disposicion" formControlName="disposicion" type="text">
+    </div>
+  </form>
+
+  <h1 class="text-center">Datos Biométricos</h1>
+
+<!-- <app-datos_menu></app-datos_menu> -->
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <form class="datosForm">
+            <div class="mb-3">
+              <label for="altura" class="form-label">Altura</label>
+              <input type="text" class="form-control" id="altura" name="altura">
+            </div>
+            <div class="mb-3">
+                <label for="alturaRama" class="form-label">Altura primera rama</label>
+                <input type="text" class="form-control" id="alturaRama" name="alturaRama">
+              </div>
+            <label for="morfologia" class="form-label">Morfología</label>
+            <select class="form-select mb-3" name="morfologia" id="morfologia" aria-label="Morfología">
+                <option value="0" selected>Mor1</option>
+                <option value="1">Mor2</option>
+                <option value="2">Mor3</option>
+                <option value="3">Mor4</option>
+              </select>    
+          </form>
+      </div>
+      <div class="col">
+        <form class="datosForm">
+            <div class="mb-3">
+              <label for="diametro" class="form-label">Diámetro</label>
+              <input type="text" class="form-control" id="diametro" name="diametro">
+            </div>
+            <label for="alcorque" class="form-label">Tipo alcorque</label>
+            <select class="form-select mb-3" name="alcorque" id="alcorque" aria-label="Alcorque">
+                <option value="0" selected>Alc1</option>
+                <option value="1">Alc2</option>
+                <option value="2">Alc3</option>
+                <option value="3">Alc4</option>
+              </select> 
+            <label for="estado" class="form-label">Estado</label>
+            <select class="form-select mb-3" name="estado" id="estado" aria-label="Estado">
+                <option value="0" selected>Est1</option>
+                <option value="1">Est2</option>
+                <option value="2">Est3</option>
+                <option value="3">Est4</option>
+              </select>    
+          </form>
+    </div>
+
+<!-- <app-datos_menufooter></app-datos_menufooter> -->

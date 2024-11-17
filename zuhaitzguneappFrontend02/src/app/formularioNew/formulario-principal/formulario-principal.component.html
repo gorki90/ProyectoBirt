@@ -1,0 +1,30 @@
+<p>formulario-principal works!</p>
+<form [formGroup]="treeForm" (ngSubmit)="onSubmit()">
+    <app-location-data *ngIf="currentSection === 'locationData'" 
+    [formGroup]="localizacion">
+    </app-location-data>
+    <!-- Sección de Datos dasométricos -->
+    <app-dasometric-data *ngIf="currentSection === 'dasometricData'" 
+    [formGroup]="dasometria">
+    </app-dasometric-data>
+    
+    <!-- Sección de Estado Sanitario -->
+    <app-health-status *ngIf="currentSection === 'healthStatus'" 
+      [formGroup]="estadoSanitario">
+    </app-health-status>
+  
+    <!-- Sección de Tareas -->
+    <app-tasks *ngIf="currentSection === 'tasks'" 
+      [formGroup]="treeForm">
+    </app-tasks>
+
+    <!-- Botón para cambiar entre secciones -->
+    <button type="button" (click)="setSection('locationData')">Datos Identificacion-localizacion</button>
+    <button type="button" (click)="setSection('dasometricData')">Datos Dasométricos</button>
+    <button type="button" (click)="setSection('healthStatus')">Estado Sanitario</button>
+    <button type="button" (click)="setSection('tasks')">Tareas</button>
+  
+    <!-- Botón para enviar el formulario -->
+    <button type="submit">Guardar</button>
+  </form>
+  
