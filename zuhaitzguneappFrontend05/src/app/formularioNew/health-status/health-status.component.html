@@ -1,0 +1,79 @@
+<p>health-status works!</p>
+
+  <h1 class="text-center">Estado Sanitario</h1>
+
+ <app-datos_menu></app-datos_menu> 
+<form class="datosForm" [formGroup]="formGroup">
+  <div class="container text-center">
+    <div class="row">
+
+      <div class="col">
+            <div class="mb-3">
+              <label for="plagas" class="form-label">Plagas</label>
+              <input type="text" class="form-control" id="plagas" formControlName="plagas">
+            </div>
+            <div class="mb-3">
+              <label>Enfermedades:</label>
+            <input class="form-control" formControlName="enfermedades" type="text" />
+          </div>
+          <div class="mb-3">
+          </div>
+            <label>Riesgos:</label>
+            <input class="form-control" formControlName="riesgos" type="text" />
+          </div>
+
+          <div class="col">
+            <div class="mb-3">
+        
+            <label>Estado:</label>
+            <input class="form-control" formControlName="estado" type="text" />
+          </div>
+          <div class="mb-3">
+          
+            <label>Afecciones abioticas:</label>
+            <input class="form-control" formControlName="afecciones_abioticas" type="text" />
+          </div>
+          <div class="mb-3">
+          
+            <label>Notas:</label>
+            <input class="form-control" formControlName="notas" type="text" />
+          </div>
+        </div>
+        <!--
+            <label for="estSanitario" class="form-label">Estado sanitario</label>
+            <select class="form-select mb-3" formControlName="estSanitario" id="estSanitario" aria-label="Estado Sanitario">
+                <option value="0" selected>Est1</option>
+                <option value="1">Est2</option>
+                <option value="2">Est3</option>
+                <option value="3">Est4</option>
+              </select> 
+            <label for="riesgos" class="form-label">Riesgos asociados</label>
+            <select class="form-select mb-3" formControlName="riesgos" id="riesgos" aria-label="riesgos">
+                <option value="0" selected>Risk1</option>
+                <option value="1">Risk2</option>
+                <option value="2">Risk3</option>
+                <option value="3">Risk4</option>
+              </select>    
+          </form>
+      </div>
+      <div class="col">
+        <form class="datosForm">
+            <div class="mb-3">
+              <label for="enfermedades" class="form-label">Enfermedades</label>
+              <input type="text" class="form-control" id="enfermedades" formControlName="enfermedades">
+            </div>
+            <label for="damages" class="form-label">Daños abióticos</label>
+            <select class="form-select mb-3" formControlName="damages" id="damages" aria-label="Daños abióticos">
+                <option value="0" selected>Dmg1</option>
+                <option value="1">Dmg2</option>
+                <option value="2">Dmg3</option>
+                <option value="3">Dmg4</option>
+              </select> 
+              <label class="form-label" for="floatingTextarea">Notas sobre el estado sanitario</label>
+              <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Escribe aquí las notas" id="floatingTextarea"></textarea>
+              </div>
+          </form>
+    </div>
+-->
+ <app-datos_menufooter></app-datos_menufooter> 
