@@ -1,0 +1,41 @@
+<!-- <p>map-geoserver-id works!</p> -->
+
+<h1 class="text-center">Mapa de GEOSERVER-ID (puntos CON interacción)</h1>
+<div id="map" class="map container-fluid"></div>
+
+
+ 
+
+<div class="container-fluid contMapa">
+  <div class="row">  
+    <div class="d-flex justify-content-between">
+      <button class="btn-mapa btn-outline-success" (click)="toggleCreateMode()" [class.active]="isCreateMode">
+        Crear Árbol
+      </button>
+      <!-- Botón para activar/desactivar el modo de edición -->
+      <button class="btn-mapa btn-outline-success" (click)="toggleEditMode()" [class.active]="isEditMode">
+       Editar Árbol
+      </button>
+      </div>
+</div>
+    <div class="row">  
+        <div class="col">
+            <div class="container-fluid">
+                <form class="d-flex datosForm" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Calle/Ciudad" aria-label="Search">
+                  <button class="btn-mapa btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+        </div>
+        <div class="col">
+            <div class="container-fluid">
+                <form class="d-flex datosForm" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Código árbol" aria-label="Search">
+                  <button class="btn-mapa btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+        </div>
+    </div>
+</div>
+
+<!--<div id="map" class="map"></div>-->
