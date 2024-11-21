@@ -1,0 +1,51 @@
+
+<h1 class="text-center">Datos Biométricos</h1>
+
+
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <form class="datosForm" [formGroup]="formGroup">
+            <div class="mb-3">
+              <label for="altura" class="form-label">Altura</label>
+              <input type="number" class="form-control" id="altura"  formControlName="altura" name="altura">
+            </div>
+            <div class="mb-3">
+                <label for="altura_primera_rama" class="form-label">Altura primera rama</label>
+                <input type="number" class="form-control" id="altura_primera_rama" formControlName="altura_primera_rama" name="altura_primera_rama">
+              </div>
+            <label for="morfologia" class="form-label">Morfología</label>
+            <select class="form-select mb-3" name="morfologia" id="morfologia" formControlName="morfologia" aria-label="Morfología">
+                <option value="globosa" selected>Globosa</option>
+                <option value="asimetrica">Asimétrica</option>
+                <option value="eliptica">Elíptica</option>
+                <option value="conica">Cónica</option>
+                <option value="simetrica">Simétrica</option>
+              </select>    
+          </form>
+      </div>
+      <div class="col">
+        <form class="datosForm" [formGroup]="formGroup">
+            <div class="mb-3">
+              <label for="diametro" class="form-label">Diámetro</label>
+              <input type="number" class="form-control" id="diametro" formControlName="diametro" name="diametro">
+            </div>
+            <label for="tipo_alcorque" class="form-label">Tipo alcorque</label>
+            <select class="form-select mb-3" name="tipo_alcorque" id="tipo_alcorque" formControlName="tipo_alcorque" aria-label="Alcorque">
+                <option value="sin_alcorque" selected>Sin alcorque</option>
+                <option value="Continuo">Continuo</option>
+                <option value="rejilla">Rejilla</option>
+                <option value="caucho">Caucho</option>
+                <option value="plastico">Plástico</option>
+              </select> 
+            <label for="disposicion" class="form-label">Estado</label>
+            <select class="form-select mb-3" name="disposicion" id="disposicion" formControlName="disposicion"  aria-label="Estado">
+                <option value="aislado" selected>Aislado</option>
+                <option value="alineacion">Alineación</option>
+                <option value="bosquete">Bosquete</option>
+                <option value="seto">Seto</option>
+              </select>    
+          </form>
+    </div>
+
