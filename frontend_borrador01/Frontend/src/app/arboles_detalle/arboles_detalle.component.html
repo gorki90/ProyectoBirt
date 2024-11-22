@@ -1,0 +1,34 @@
+<p>arboles_detalle works!</p>
+<!--
+<h2>Familia:</h2>
+<h2>Nombre común:</h2>
+<h2>Nombre científico:</h2>
+<h2>Tipología:</h2>
+<h2>Enfermedades comunes:</h2>
+<h2>Características:</h2>
+-->
+<div class="row">
+    <div class="col-3"></div>
+
+    <div class="col-6">
+        <div class="card">
+            <img src="{{arbol?.imagen}}" class="card-img-top" alt="{{arbol?.nombre}}">
+            <div class="card-body">
+                <h5 class="card-title">{{arbol?.nombre}}</h5>
+                <p class="card-text">{{arbol?.direccion}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Telefono: {{arbol?.telefono}}</li>
+                <li class="list-group-item">Horario: {{arbol?.horario}}</li>
+                <li class="list-group-item">Precio: {{arbol?.precio}}</li>
+                <li class="list-group-item">Abierto: {{arbol?.abierto}}</li>
+            </ul>
+            <div class="card-body">
+                <a href="{{arbol?.web}}" target="_blank" class="card-link">Web del arbol</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-3"></div>
+</div>
