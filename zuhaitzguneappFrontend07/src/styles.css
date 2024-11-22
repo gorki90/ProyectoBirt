@@ -278,10 +278,6 @@ transition: transform 0.5s ease;
 .dropdown-menu{
     background-color: #007F73;
     color: white;
-    transition: background-color 0.3s ease;
-}
-.dropdown-menu:hover{
-    background-color: rgba(0, 127, 115, 0.7);
 }
 
 .dropdown-menu .dropdown-item{

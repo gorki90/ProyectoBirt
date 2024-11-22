@@ -5,102 +5,53 @@
       Filtrar
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Por prioridad</a></li>
-      <hr>
-      <li><a class="dropdown-item" href="#">Por fecha límite</a></li>
-      <hr>
-      <li><a class="dropdown-item" href="#">Por fecha de comienzo</a></li>
-      <hr>
-      <li><a class="dropdown-item" href="#">Por estado</a></li>
-      <hr>
-      <li><a class="dropdown-item" href="#">Por tipo</a></li>
-      <hr>
-      <li><a class="dropdown-item" href="#">Por ubicación</a></li>
+      <li><a class="dropdown-item" (click)="aplicarFiltro('prioridad')">Por prioridad</a></li>
+    <hr />
+    <li><a class="dropdown-item" (click)="aplicarFiltro('fecha_limite')">Por fecha límite</a></li>
+    <hr />
+    <li><a class="dropdown-item" (click)="aplicarFiltro('fecha_comienzo')">Por fecha de comienzo</a></li>
+    <hr />
+    <li><a class="dropdown-item" (click)="aplicarFiltro('estado_accion')">Por estado</a></li>
+    <hr />
+    <li><a class="dropdown-item" (click)="aplicarFiltro('tipo_accion')">Por tipo</a></li>
     </ul>
   </div>
-
-  <div class="list-group container-fluid">
+  <div *ngFor="let arbol of tareasArboles" class="list-group container-fluid">
     <a href="#" class="list-group-item list-group-item-action">
       <div class="row tareasLista">
-<div class="col">
-  <img class="img-fluid tareas-img" src="/assets/img/Zuhaitzguneapp.png">
-</div>
-<div class="col">
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-    <label class="form-check-label" for="flexCheckDefault">
-      Podar árbol
-    </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Tratar hongos
-      </label>
+        <!-- Información del árbol -->
+        <div class="col">
+          <img class="img-fluid tareas-img" src="/assets/img/Zuhaitzguneapp.png" />
+        </div>
+        <div class="col">
+          <h5>Codigo: {{ arbol.codigo }}</h5>
+          <p>Nombre común: {{ arbol.nombre_comun || 'No disponible' }}</p>
+          <p>Ubicación: {{ arbol.barrio || 'Sin barrio' }}</p>
+        </div>
+  
+        <!-- Lista de tareas -->
+        <div class="col">
+          <div *ngFor="let tarea of arbol.tasks" class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [checked]="tarea.estado_accion === 'finalizada'"
+              (change)="toggleTareaEstado( tarea, tarea.id, $event)"
+            />
+            <label class="form-check-label">
+              {{ tarea.tipo_accion || 'Tarea sin descripción' }}
+            </label>
+          </div>
+        </div>
+  
+        <!-- Información adicional -->
+        <div class="col">
+          <p class="mb-1">Coordenadas X: {{ arbol.coordenadaX }}</p>
+          <p class="mb-1">Coordenadas Y: {{ arbol.coordenadaY }}</p>
+          <small>Notas: {{ arbol.notas_ubicacion || 'Sin notas' }}</small>
+        </div>
       </div>
-</div>
-<div class="col">
-  <p class="mb-1">Some placeholder content in a paragraph.</p>
-  <small>And some small print.</small>
-</div>
-</div>
-</a>
-</div>
-
-<div class="list-group container-fluid">
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="row tareasLista">
-<div class="col">
-<img class="img-fluid tareas-img" src="/assets/img/Zuhaitzguneapp.png">
-</div>
-<div class="col">
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-    <label class="form-check-label" for="flexCheckDefault">
-      Podar árbol
-    </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Tratar hongos
-      </label>
-      </div>
-</div>
-<div class="col">
-<p class="mb-1">Some placeholder content in a paragraph.</p>
-<small>And some small print.</small>
-</div>
-</div>
-</a>
-</div>
-
-<div class="list-group container-fluid">
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="row tareasLista">
-<div class="col">
-<img class="img-fluid tareas-img" src="/assets/img/Zuhaitzguneapp.png">
-</div>
-<div class="col">
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-    <label class="form-check-label" for="flexCheckDefault">
-      Podar árbol
-    </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Tratar hongos
-      </label>
-      </div>
-</div>
-<div class="col">
-<p class="mb-1">Some placeholder content in a paragraph.</p>
-<small>And some small print.</small>
-</div>
-</div>
-</a>
-</div>
+    </a>
+  </div>
   
 
