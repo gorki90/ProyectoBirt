@@ -30,11 +30,12 @@ class TareasController extends Controller
         })
         ->selectRaw('*, ST_X(geom) AS coordenadax, ST_Y(geom) AS coordenaday')
         ->get();
-
+        
         // Mapear los resultados directamente a TareasDTO
         $tareasDTO = $arbolesConTareasPendientes->map(function ($arbol) {
             return new TareasDTO([
                 'locationData' => [
+                    'id'=> $arbol->id ?? null,
                     'codigo' => $arbol->codigo ?? null,
                     'especie' => $arbol->especie ?? null,
                     'nombre_comun' => $arbol->nombre_comun ?? null,
@@ -124,6 +125,7 @@ class TareasController extends Controller
         $tareasDTO = $resultado->map(function ($arbol) {
             return new TareasDTO([
                 'locationData' => [
+                    'id' => $arbol->id,
                     'codigo' => $arbol->codigo,
                     'especie' => $arbol->especie,
                     'nombre_comun' => $arbol->nombre_comun,

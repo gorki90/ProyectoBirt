@@ -7,7 +7,9 @@ import { HttpParams } from '@angular/common/http';
 })
 export class WfsService {
 
-  private wfsUrl = 'http://localhost:8080/geoserver/zuhaitzguneapp/wfs?service=WFS&version=1.0.0&request=GetFeature&typeName=zuhaitzguneapp:identificacion_localizacion&outputFormat=application/json';
+  private wfsUrl = 'http://localhost:8080/geoserver/zuhaitzguneapp/wfs?service=WFS&version=1.0.0' +
+                    '&request=GetFeature&typeName=zuhaitzguneapp:identificacion_localizacion' + 
+                    '&outputFormat=application/json';
   private apiUrl = 'http://localhost:8000/api/arboles/create';
   
   constructor(private http: HttpClient) {}

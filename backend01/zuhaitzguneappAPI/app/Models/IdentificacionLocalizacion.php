@@ -12,6 +12,7 @@ class IdentificacionLocalizacion extends Model
     protected $primaryKey = 'id'; // Especificamos la clave primaria
     public $timestamps = false;
     protected $fillable = [
+        'id',
         'codigo', 
         'especie', 
         'nombre_comun', 

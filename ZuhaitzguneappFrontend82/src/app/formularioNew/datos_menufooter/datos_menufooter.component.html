@@ -1,0 +1,10 @@
+<div class="btn-group2">
+<!--
+    <button [routerLink]="['/']" class="btn-footer"><i class="fa-solid fa-floppy-disk fa-2xl"></i></button>
+<button class="btn d-inline-block" type="submit">Guardar<i class="fa-solid fa-map fa-xl"></i></button>
+-->
+<button type="submit" class="btn-footer"><i class="fa-solid fa-floppy-disk fa-2xl"></i></button>
+<button [routerLink]="['/']" class="btn-footer"><i class="fa-solid fa-trash fa-2xl"></i></button>
+<button type="button" (click)="navigate('prev')" [disabled]="isFirstSection()" class="btn-footer"><i class="fa-solid fa-arrow-left-long fa-2xl"></i></button>
+<button type="button"  (click)="navigate('next')" [disabled]="isLastSection()"class="btn-footer"><i class="fa-solid fa-arrow-right-long fa-2xl"></i></button>
+</div>

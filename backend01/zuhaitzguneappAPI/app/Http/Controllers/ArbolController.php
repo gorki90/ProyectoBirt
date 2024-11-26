@@ -326,11 +326,13 @@ public function updateArbol(Request $request, $id)
         })
         ->selectRaw('*, ST_X(geom) AS coordenadax, ST_Y(geom) AS coordenaday')
         ->get();
+        
 
         // Mapear los resultados directamente a TareasDTO
         $tareasDTO = $arbolesConTareasPendientes->map(function ($arbol) {
             return new TareasDTO([
                 'locationData' => [
+                    'id' => $arbol->id,
                     'codigo' => $arbol->codigo ?? null,
                     'especie' => $arbol->especie ?? null,
                     'nombre_comun' => $arbol->nombre_comun ?? null,
@@ -401,6 +403,7 @@ public function updateArbol(Request $request, $id)
         $tareasDTO = $resultado->map(function ($arbol) {
             return new TareasDTO([
                 'locationData' => [
+                    'id' => $arbol->id,
                     'codigo' => $arbol->codigo,
                     'especie' => $arbol->especie,
                     'nombre_comun' => $arbol->nombre_comun,
@@ -417,5 +420,11 @@ public function updateArbol(Request $request, $id)
 
             return response()->json($tareasDTO); // O cualquier acción que desees hacer con el resultado
 
+    }
+    public function getArbolesBarrios()
+    {
+        // Suponiendo que tienes una columna 'barrio' en tu base de datos
+        $barrios = IdentificacionLocalizacion::distinct()->pluck('barrio'); // Asegúrate de usar el modelo correcto
+        return response()->json($barrios);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models\DTO;
 
 class TareasDTO
 {
+    public $id;
     public $codigo;
     public $especie;
     public $nombre_comun;
@@ -20,6 +21,7 @@ class TareasDTO
         if (is_object($data)) {
             $data = json_decode(json_encode($data), true);
         }
+        $this->id = $data['locationData']['id'];
         $this->codigo = $data['locationData']['codigo'];
         $this->especie = $data['locationData']['especie'];
         $this->nombre_comun = $data['locationData']['nombre_comun'];
