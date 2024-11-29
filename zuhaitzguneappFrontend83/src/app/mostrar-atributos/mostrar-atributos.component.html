@@ -1,0 +1,42 @@
+<p>mostrar-atributos works!</p>
+  
+
+<div *ngIf="attributes" class="container-fluid border p-4 rounded">
+  <h1 class="text-center">Atributos del árbol </h1>
+  <div class="d-flex justify-content-start mb-3">
+    <button class="btn btn-primary me-3 " (click)="toggleEditMode()" [class.active]="isEditMode">
+      <i class="fa-solid fa-pencil-alt "></i> Editar
+    </button>
+    <button class="btn btn-primary" (click)="mapaid()">
+      <i class="fa-solid fa-map fa-xl"></i> Mapa
+    </button>
+  </div>
+  <!-- Contenido en dos columnas -->
+  <div class="row">
+    <!-- Columna izquierda: Características del árbol -->
+    <div class="col-md-6 border-end">
+      <h3 class="text-center">Características del árbol</h3>
+      <div *ngFor="let key of attributeKeys" class="mb-2">
+        <!-- Mostrar atributos normales excepto 'tasks' -->
+        <ng-container *ngIf="key !== 'tasks'">
+          <strong>{{ key }}:</strong> {{ attributes[key] || 'No disponible' }}
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Columna derecha: Tareas -->
+    <div class="col-md-6">
+      <h3 class="text-center">Tareas</h3>
+      <ul style="list-style-type: none; padding: 0;">
+        <li *ngFor="let task of attributes['tasks']" class="mb-3 border-bottom pb-2">
+          <strong>Tarea:</strong> {{ task.tipo_accion }}<br>
+          <strong>Descripción:</strong> {{ task.descripcion_accion }}<br>
+          <strong>Prioridad:</strong> {{ task.prioridad }}<br>
+          <strong>Estado:</strong> {{ task.estado_accion }}<br>
+          <strong>Fecha de Inicio:</strong> {{ task.fecha_inicio }}<br>
+          <strong>Fecha Límite:</strong> {{ task.fecha_limite }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
