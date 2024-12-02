@@ -334,6 +334,8 @@ align-items: center;
     
 }
 
+
+
 .img-card{
     max-width: min-content;
 }
@@ -455,6 +457,29 @@ font-weight: bolder;
     resize: vertical;
     height: 8rem;
     width: 100%;
+}
+
+.progreso{
+    margin-top: 2rem;
+}
+
+.progreso1{
+    margin-top: 2rem;
+    width: 80vw;
+    margin-left: 6rem;
+}
+
+.progress{
+    background-color: #007F73;
+    border-color: white;
+    border-style:solid;
+    border-width: 1px;
+    
+}
+
+.progress-bar{
+    background-color: #8BD3A0;
+    border-radius: 50px;
 }
 
 
@@ -602,6 +627,49 @@ font-weight: bolder;
     margin-top: 2rem;
 }
 
+/* Estilos mostrar atributos */
+
+.btn-atributos-group{
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-atributos{
+    background-color: #007F73;
+    color: white;
+    padding: 0.5rem;
+    border-style: none;
+    border-radius: 50px;
+    font-size: large;
+    font-weight: bold;
+    width: 25vw;
+}
+
+.btn-atributos:hover{
+    background-color: #8BD3A0;
+    color: #007F73;
+    transform: scale(1.2);
+}
+
+.lista-atributos:hover{
+background-color: black;
+border-radius: 5px;
+}
+
+
+.card-atributos{
+    background-color: #007F73;
+    color:white;
+    margin-top: 2rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.card-atributos:hover{
+    background-color: rgba(0, 127, 115, 0.4);
+    padding: 1rem;
+    font-weight: bolder;
+}
 
 /* Media queries */
 
