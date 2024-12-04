@@ -1,0 +1,53 @@
+<!--
+
+<p>arboles_tarjetas works!</p>
+<ul>
+    <li *ngFor="let arbol of arbols"> 
+      <a routerLink="/arbol_detalle/{{arbol.id}}"> {{arbol.nombre}} </a> 
+    </li>
+  </ul>
+-->
+<mat-form-field>
+  <input matInput placeholder="Buscar ..." [(ngModel)]="dato" (keyup)="filtrar()" />
+</mat-form-field>
+
+
+<mat-table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="nombre">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+    <mat-cell *matCellDef="let arbol">
+<!--      <a routerLink="/arboles_detalle/{{arbol.id}}"> {{arbol.nombre}} </a>
+    -->
+  <a routerLink="/arboles/{{arbol.id}}"> {{arbol.nombre}} </a>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="abierto">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Abierto</mat-header-cell>
+    <mat-cell *matCellDef="let arbol">
+      <span *ngIf="arbol.abierto">Abierto</span>
+      <span *ngIf="!arbol.abierto">Cerrado</span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="horario">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Horario</mat-header-cell>
+    <mat-cell *matCellDef="let arbol">{{arbol.horario}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="precio">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Precio</mat-header-cell>
+    <mat-cell *matCellDef="let arbol">{{arbol.precio}}</mat-cell>
+  </ng-container>
+
+  
+  <mat-header-row *matHeaderRowDef="nombreColumnas"></mat-header-row>
+ 
+  <mat-row *matRowDef="let arbol; columns:nombreColumnas"></mat-row>
+
+</mat-table>
+
+<!-- El paginador fuera de la tabla  -->
+<mat-paginator [pageSize]="4" [pageSizeOptions]="[4,8,12,16]" showFirstLastButtons></mat-paginator>
+
