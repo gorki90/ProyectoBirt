@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { WfsService } from '../servicio/wfs.service';
 
 @Component({
   selector: 'app-inicio',
@@ -10,8 +11,8 @@ export class InicioComponent implements OnInit {
 
   private _route: ActivatedRoute;
   private _router: Router;
-
-  constructor(_route: ActivatedRoute, _router: Router) {
+ username:string|null=null;
+  constructor(_route: ActivatedRoute, _router: Router, private _http:WfsService) {
     this._route = _route;
     this._router = _router;
 
@@ -19,7 +20,18 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     console.log();
+    this.loadUserData();
   };
+
+  loadUserData(): void {
+    if (this._http.isAuthenticated()) {
+      this.username = this._http.getUsername();  // Llamar al método del servicio
+    }
+  }
+
+  isAuthenticated(): boolean {
+    return this._http.isAuthenticated();
+  }
 
   map() {
     this._router.navigate(['/map']); //también se le podrían pasar parámetros

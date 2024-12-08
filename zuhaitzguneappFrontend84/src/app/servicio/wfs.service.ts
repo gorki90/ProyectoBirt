@@ -14,6 +14,10 @@ export class WfsService {
 
   private apiUrlall = 'http://localhost:8000/api/arboles/all'; // URL de tu API ARBOLES
 
+  private urlLogin="http://localhost:8000/api/user/login";
+
+  private urlUsers="http://localhost:8000/api";
+
   constructor(private http: HttpClient) { }
 
   // MÃ©todo para obtener el JSON ARBOLES
@@ -122,4 +126,42 @@ export class WfsService {
     }
     return this.http.get(url + campo + '/' + valor, { params });
   }
+
+
+//Llamadas a la api para los usuarios
+
+login(username:string, password:string):Observable<any>{
+return this.http.post(this.urlLogin,{username,password});
+}
+
+setToken(token:string):void{
+localStorage.setItem("token", token);
+}
+
+setTUsername(username:string):void{
+  localStorage.setItem("username", username);
+  }
+
+getToken():string|null{
+return localStorage.getItem("token");
+}
+
+getUsername():string|null{
+  return localStorage.getItem("username");
+  }
+
+logout():void{
+  localStorage.removeItem("token");
+}
+
+isAuthenticated():boolean{
+  return !!this.getToken();
+}
+
+updateUser(id:number, userData:any):Observable<any>{
+  return this.http.put(this.urlUsers + '/users/updateUser/' + id, userData);
+}
+
+
+
 }
