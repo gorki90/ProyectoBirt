@@ -59,8 +59,8 @@ class ValidacionUpdate extends FormRequest
             'tasks.*.descripcion_accion'=>['nullable','string', 'max:500'], 
             'tasks.*.prioridad' => ['nullable', 'in:baja,normal,alta,urgente'],
             'tasks.*.estado' => ['nullable', 'in:iniciada,no_iniciada,programada,por_determinar,finalizada'],
-            'tasks.*.fecha_comienzo' => ['nullable', 'date','after:today'],
-            'tasks.*.fecha_limite' => ['nullable', 'date','after:today'],
+            'tasks.*.fecha_comienzo' => ['nullable', 'date'],
+            'tasks.*.fecha_limite' => ['nullable', 'date'],
         ];
     }
         /**
