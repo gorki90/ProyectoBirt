@@ -151,8 +151,18 @@ export class WfsService {
     return localStorage.getItem("username");
     }
 
+  getUserId():string|null{
+      return localStorage.getItem("id");
+   }
+   
+   setUserId(id: number): void {
+    localStorage.setItem('id', id.toString());
+   }
+
   logout():void{
+    localStorage.removeItem("id");
     localStorage.removeItem("token");
+    localStorage.removeItem("username");
   }
 
   isAuthenticated():boolean{
@@ -160,7 +170,7 @@ export class WfsService {
   }
 
   updateUser(id:number, userData:any):Observable<any>{
-    return this.http.put(this.urlUsers + '/users/updateUser/' + id, userData);
+    return this.http.put(`http://localhost:8000/api/user/updateUser/${id}`, userData);
   }
 
 

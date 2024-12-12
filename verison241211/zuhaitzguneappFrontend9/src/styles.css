@@ -697,6 +697,13 @@ border-radius: 5px;
     font-weight: bolder;
 }
 
+/*Estilos de logout*/
+
+.salir{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
 
 /* Media queries */
 

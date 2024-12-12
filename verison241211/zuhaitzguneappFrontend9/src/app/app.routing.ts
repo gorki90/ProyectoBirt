@@ -26,6 +26,7 @@ import { DasometricDataComponent } from './formularioNew/dasometric-data/dasomet
 import { HealthStatusComponent } from './formularioNew/health-status/health-status.component';
 import { LocationDataComponent } from './formularioNew/location-data/location-data.component';
 import { TasksComponent } from './formularioNew/tasks/tasks.component';
+import { LogoutComponent } from "./logout/logout.component";
 //import { TasksNewComponent } from './tasksNew/tasksNew.component';
 //rutas de la página web
 const appRoutes: Routes = [
@@ -49,11 +50,12 @@ const appRoutes: Routes = [
 {path:'perfil', component: PerfilComponent},                                    //ruta del navegador a acceder, componente a cargar
 {path:'acceso', component: AccesoComponent},                                    //ruta del navegador a acceder, componente a cargar
 //{path:'arboles_tarjetas',component: Arboles_tarjetasComponent},                 //ruta del navegador a acceder, componente a cargar
-{path:'**',component: InicioComponent},                                         //si da un error, siempre nos dirige a la página principal
 {path:'locationData', component: LocationDataComponent},              //ruta para llegar a datos_identificación
 {path:'dasometricData', component: DasometricDataComponent},                      //ruta para llegar a datos_biometricos
+{path:'salir', component: LogoutComponent},
 {path:'healthStatus', component: HealthStatusComponent},                           //ruta para llegar a datos_sanitarios
 {path:'tasks', component: TasksComponent},                    //ruta para llegar a datos_actuaciones
+{path:'**',component: InicioComponent},                                         //si da un error, siempre nos dirige a la página principal
 ];
 
 export const appRoutingProviders: any[]=[];

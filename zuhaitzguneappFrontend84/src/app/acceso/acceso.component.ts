@@ -41,13 +41,12 @@ this._http.login(username,password).subscribe({
     this.loginMessage = 'Login incorrecto';
 
     setTimeout(() => {
-      this.loginMessage = ''; // Limpiar el mensaje después de 3 segundos
+      this.loginMessage = ''; 
     }, 3000);
   },
 })
 
   }
 }
-
 
 }

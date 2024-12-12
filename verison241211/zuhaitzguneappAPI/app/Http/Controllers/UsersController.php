@@ -95,26 +95,31 @@ public function updateUser(Request $request, $id)
     }
 
 
-    if (isset($validar['name'])) {
+    if (!empty($validar) && isset($validar['name'])) {
         $user->name = $validar['name'];
+        $user->name = $request->input('name');
     }
 
-    if (isset($validar['username'])) {
+    if (!empty($validar) && isset($validar['username'])) {
         $user->username = $validar['username'];
+        $user->username = $request->input('username');
     }
 
    
-    if (isset($validar['email'])) {
+    if (!empty($validar) && isset($validar['email'])) {
         $user->email = $validar['email'];
+        $user->email = $request->input('email');
     }
 
     
-    if (isset($validar['password'])) {
+    if (!empty($validar) && isset($validar['password'])) {
         $user->password = bcrypt($validar['password']);
+        $user->password = $request->input('password');
     }
 
-    if (isset($validar['foto'])) {
+    if (!empty($validar) && isset($validar['foto'])) {
         $user->foto = $validar['foto'];
+        $user->foto = $request->input('foto');
     }
 
     $user->save();
@@ -167,6 +172,7 @@ if(!$user || !Hash::check($request->password, $user->password)){
         'message'=>"Login correcto",
         'token'=>$token,
         'username'=>$user['username'],
+        'id'=>$user['id']
     ],200);
 
 }

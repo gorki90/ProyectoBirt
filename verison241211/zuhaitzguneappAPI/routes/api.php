@@ -31,6 +31,8 @@ Route::get('/obtener-imagen', [ImageController::class, 'getImageAsBase64']);
 Route::delete('/delete-imagen/{nombre}', [ImageController::class, 'deleteFoto']);
 Route::get('/foto/{foto}', [ImageController::class, 'getFoto']);
 
+//Usuarios
+
 Route::get('/users', [UsersController::class, 'getAllUsers'])->name('api_users.getAllUsers');
 Route::get('/user/{id}', [UsersController::class, 'getUserbyId'])->name('api_users.getUserById');
 Route::post('/user/createUser', [UsersController::class, 'createUser'])->name('api_users.createUser');

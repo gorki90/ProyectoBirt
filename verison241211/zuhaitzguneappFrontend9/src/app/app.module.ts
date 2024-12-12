@@ -37,6 +37,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
 
 //import { TasksNewComponent } from './tasksNew/tasksNew.component';
 
@@ -70,6 +71,7 @@ const misRutas: Routes = [
         MapGeoserverIdComponent,
         PerfilComponent,
         TareasComponent,
+        LogoutComponent,
         
     ],
     imports: [BrowserModule,    

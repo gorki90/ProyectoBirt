@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { WfsService } from '../servicio/wfs.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -31,6 +31,7 @@ this._http.login(username,password).subscribe({
     console.log("Login exitoso ",response);
     this._http.setToken(response.token);
     this._http.setTUsername(response.username);
+    this._http.setUserId(response.id);
     this.loginMessage = 'Login correcto';
     setTimeout(() => {
       this.router.navigate(['/']);
@@ -49,5 +50,8 @@ this._http.login(username,password).subscribe({
   }
 }
 
+ get passwordControl(): AbstractControl | null{
+  return this.loginForm.get("password")
+}
 
 }

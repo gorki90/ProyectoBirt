@@ -14,6 +14,9 @@
 <!-- <button (click)="map()">MAP</button>
 <button (click)="mapaWFS()">MAPA WFS</button>
 <button (click)="mapaWMS()">MAPA WMS</button> -->
-    <button class="btn d-inline-block" style="font-size: 1.5rem;" (click)="acceso()"><i class="fa-solid fa-right-to-bracket fa-xl"></i> Acceso</button>
+
+    <button *ngIf="!isAuthenticated()" class="btn d-inline-block" style="font-size: 1.5rem;" (click)="acceso()"><i class="fa-solid fa-right-to-bracket fa-xl"></i> Acceso</button>
+    <button *ngIf="isAuthenticated()" class="btn d-inline-block" style="font-size: 1.5rem;" (click)="salir()"><i class="fa-solid fa-right-from-bracket fa-xl"></i> Salir</button>
+
     </div>
 </div>

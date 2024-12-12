@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { WfsService } from './servicio/wfs.service';
 //import { Datos_menuComponent, } from './formularioNew/datos_menu/datos_menu.component';
 //import { Datos_menufooterComponent } from './formularioNew/datos_menufooter/datos_menufooter.component';
 //import { MostrarAtributosComponent } from './mostrar-atributos/mostrar-atributos.component';
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit{
   nombre: any|string;
 
 
-  constructor(private router: Router){
+  constructor(private router: Router,private _http:WfsService){
     console.log("Componente principal generado!!!")
   }
   ngOnInit(): void {
@@ -37,5 +38,7 @@ export class AppComponent implements OnInit{
       this.router.navigate(['/tareas']);
     });
   }
-  
+  isAuthenticated(): boolean {
+    return this._http.isAuthenticated();
+  }
 }

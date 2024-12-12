@@ -52,4 +52,8 @@ export class InicioComponent implements OnInit {
   acceso() {
     this._router.navigate(['/acceso']); //también se le podrían pasar parámetros
   }
+
+  salir() {
+    this._router.navigate(['/salir']); //también se le podrían pasar parámetros
+  }
 }
