@@ -137,6 +137,10 @@ import { ImageService } from '../servicio/image.service';
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+
+  isAuthenticated(): boolean {
+    return this.wfsService.isAuthenticated();
+  }
   
 }
 

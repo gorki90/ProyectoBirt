@@ -9,11 +9,11 @@
 <div class="container-fluid contMapa">
   <div class="row">  
     <div class="d-flex justify-content-evenly">
-      <button class="btn-mapa" (click)="toggleCreateMode()" [class.active]="isCreateMode">
+      <button *ngIf="isAuthenticated()" class="btn-mapa" (click)="toggleCreateMode()" [class.active]="isCreateMode">
         Crear Árbol
       </button>
       <!-- Botón para activar/desactivar el modo de edición -->
-      <button class="btn-mapa" (click)="toggleEditMode()" [class.active]="isEditMode">
+      <button *ngIf="isAuthenticated()"  class="btn-mapa" (click)="toggleEditMode()" [class.active]="isEditMode">
        Editar Árbol
       </button>
       </div>

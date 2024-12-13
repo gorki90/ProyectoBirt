@@ -401,6 +401,11 @@ export class MapGeoserverIdComponent implements OnInit {
       console.warn('La geolocalización no está soportada en este navegador.');
     }
   }
+
+  isAuthenticated(): boolean {
+    return this.wfsService.isAuthenticated();
+  }
+
 }
 
 

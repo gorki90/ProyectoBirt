@@ -1,4 +1,13 @@
 <h1 class="text-center">Ajustes de perfil</h1>
+<div class="popup-loader" id="popup-loader">
+  <div class="loader" id="loader"></div>
+</div>
+<div class="img-init-cont">
+  <img *ngIf="foto; else icon" [src]="foto" class="img-fluid img-init" alt="Foto de perfil">
+  <ng-template #icon>
+    <i class="fa-solid fa-user fa-xl"></i>
+  </ng-template>
+</div>
 
 <div class="container text-center">
     <div class="row">
@@ -22,18 +31,18 @@
       </div>
       <div class="col">
         <h2>Contraseña</h2>
-        <form class="perfilForm">
+        <form class="perfilForm" (ngSubmit)="passwordUpdates()">
             <div class="mb-3">
-              <label for="contAnt" class="form-label">Contraseña anterior</label>
-              <input type="password" class="form-control" id="contAnt">
+              <label for="oldPass" class="form-label">Contraseña anterior</label>
+              <input type="password" [(ngModel)]="oldPass" name="oldPass" class="form-control" id="oldPass">
             </div>
             <div class="mb-3">
-              <label for="contNue" class="form-label">Nueva contraseña</label>
-              <input type="password" class="form-control" id="contNue">
+              <label for="newPass" class="form-label">Nueva contraseña</label>
+              <input type="password" [(ngModel)]="newPass" name="newPass" class="form-control" id="newPass">
             </div>
             <div class="mb-3">
-              <label for="rContNue" class="form-label">Repetir nueva contraseña</label>
-              <input type="password" class="form-control" id="rContNue">
+              <label for="newPass2" class="form-label">Repetir nueva contraseña</label>
+              <input type="password" [(ngModel)]="newPass2" name="newPass2" class="form-control" id="newPass2">
             </div>
             <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
           </form>

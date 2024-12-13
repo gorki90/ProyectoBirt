@@ -42,7 +42,7 @@ public function createUser(Request $request){
 'email'=>'required|email|unique:users,email',
 'password'=>'required|string|min:8',     
 'username'=>'required|string|unique:users,username', 
-'foto'=>'nullable|string',  
+'foto'=>'nullable|file|mimes:jpg,jpeg,png|max:2048',  
     ]);
 
     $user=User::create([
@@ -68,7 +68,7 @@ public function updateUser(Request $request, $id)
         'email' => 'nullable|email|unique:users,email,' . $id, 
         'password' => 'nullable|string|min:8|confirmed',
         'current_password' => 'required_if:password,!=,null|string|min:8',
-        'foto'=>'nullable|string',
+        'foto'=>'nullable|string|min:10',
     ]);
 
     
@@ -117,10 +117,26 @@ public function updateUser(Request $request, $id)
         $user->password = $request->input('password');
     }
 
-    if (!empty($validar) && isset($validar['foto'])) {
-        $user->foto = $validar['foto'];
-        $user->foto = $request->input('foto');
+    if (isset($validar['foto']) && !empty($validar['foto'])) {
+        // Verifica si la cadena es una Base64 válida (comienza con 'data:image/...;base64,')
+        if (preg_match('/^data:image\/(\w+);base64,/', $validar['foto'], $type)) {
+            $imageData = substr($validar['foto'], strpos($validar['foto'], ',') + 1); // Extrae la parte Base64
+            $imageData = base64_decode($imageData); // Decodifica la imagen
+
+            if ($imageData === false) {
+                return response()->json(['message' => 'La imagen no es válida'], 400);
+            }
+
+            $imageName = 'foto_' . time() . '.png'; // Genera un nombre único
+            $path = storage_path('app/public/img/' . $imageName); // Ruta de almacenamiento
+            file_put_contents($path, $imageData); // Guarda la imagen en el servidor
+
+            $user->foto = 'img/' . $imageName; // Guarda la ruta de la imagen en la base de datos
+        } else {
+            return response()->json(['message' => 'Formato de imagen no válido'], 400);
+        }
     }
+    
 
     $user->save();
 

@@ -131,6 +131,11 @@ export class WfsService {
 
   //Llamadas a la api para los usuarios
 
+
+  getUser(id:number):Observable<any>{
+  return this.http.get(`http://localhost:8000/api/user/${id}`);
+  }
+
   login(username:string, password:string):Observable<any>{
   return this.http.post(this.urlLogin,{username,password});
   }

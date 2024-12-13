@@ -4,10 +4,10 @@
     <img class="img-fluid img-init" [src]="imageUrl" alt="Imagen del árbol">
   </div>
   <div class="d-flex justify-content-start mb-3">
-    <button class="btn btn-primary me-3 " (click)="toggleEditMode()" [class.active]="isEditMode">
+    <button *ngIf="isAuthenticated()" class="btn btn-primary me-3 " (click)="toggleEditMode()" [class.active]="isEditMode">
       <i class="fa-solid fa-pencil-alt fa-xl "></i> Editar
     </button>
-    <button class="btn btn-primary" (click)="mapaid()">
+    <button *ngIf="isAuthenticated()" class="btn btn-primary" (click)="mapaid()">
       <i class="fa-solid fa-map fa-xl"></i> Mapa
     </button>
   </div>

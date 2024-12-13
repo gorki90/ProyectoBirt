@@ -47,7 +47,22 @@ export class Datos_menufooterComponent   {
   isLastSection(): boolean {
     return this.sections.indexOf(this.currentSection) === this.sections.length - 1;
   }
-}
+
+  guardar(){
+    const loader=document.getElementById("popup-loader");
+    if( loader){
+      loader.style.display="block";
+    }
+    setTimeout(()=>{
+      
+      if (loader) {
+        loader.style.display = "none";
+      }
+    },1000);
+      }
+  }
+
+
 
 
 

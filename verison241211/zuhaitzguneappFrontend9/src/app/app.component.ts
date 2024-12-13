@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { WfsService } from './servicio/wfs.service';
 //import { Datos_menuComponent, } from './formularioNew/datos_menu/datos_menu.component';
 //import { Datos_menufooterComponent } from './formularioNew/datos_menufooter/datos_menufooter.component';
@@ -22,15 +22,20 @@ export class AppComponent {
 }
 */
 export class AppComponent implements OnInit{
-  title = 'zuhaitzguneappFrontend84';
+  title = 'Zuhaitzguneapp';
   nombre: any|string;
+  foto:string="";
 
 
   constructor(private router: Router,private _http:WfsService){
     console.log("Componente principal generado!!!")
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.getDatosUser();
+      }
+    });
   }
   ngOnInit(): void {
-    
   }
   // metodo para destruir y volver a cargar el componente asociado
   forzarRecarga() {
@@ -41,4 +46,22 @@ export class AppComponent implements OnInit{
   isAuthenticated(): boolean {
     return this._http.isAuthenticated();
   }
+  
+  
+
+  getDatosUser(){
+   if(this.isAuthenticated()){
+    const id = parseInt(localStorage.getItem("id")!, 10);
+    this._http.getUser(id).subscribe({
+      next:(response)=>{
+        this.foto=`http://localhost:8000/storage/${response.foto}`;;
+        console.log(this.foto);
+      },
+      error:(err)=>{
+         console.log(err);
+      }
+    })
+   }
+  }
+
 }
