@@ -19,6 +19,7 @@ import { AtributoService } from '../servicio/atributo.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import WMTSTileGrid from 'ol/tilegrid/WMTS';
+import Icon from 'ol/style/Icon';
 
 @Component({
   selector: 'app-map-geoserver-id',
@@ -101,15 +102,13 @@ export class MapGeoserverIdComponent implements OnInit {
     this.wfsLayer = new VectorLayer({
       source: new VectorSource(),
       style: new Style({
-        image: new Circle({
-          radius: 5,
-          fill: new Fill({ color: 'red' }),
-          stroke: new Stroke({ color: 'black', width: 1 }),
+        image: new Icon({
+          src: "/assets/img/planta.png",
+          scale: 0.3,
+          anchor: [0.5, 0.5],
         }),
       }),
     });
-
-
     // genero el objeto mapa donde estará la capa obtenida del servicio wfs y el fondo OSM
     this.map = new Map({
       target: 'map',
