@@ -17,6 +17,7 @@ export class PerfilComponent implements  OnInit,OnChanges {
   oldPass:string="";
   newPass:string="";
   newPass2:string="";
+  fotoPerfil:string="";
 
   user:Users=new Users();
 
@@ -74,6 +75,10 @@ setTimeout(()=>{
   }
 },1000);
 
+if(this.user.username){
+  localStorage.removeItem("username");
+  localStorage.setItem("username",this.user.username);
+}
   
 }
 
@@ -121,8 +126,8 @@ setTimeout(()=>{
     const id = parseInt(localStorage.getItem("id")!, 10);
     this._http.getUser(id).subscribe({
       next:(response)=>{
-        this.foto=`http://localhost:8000/storage/${response.foto}`;;
-        console.log(this.foto);
+        this.fotoPerfil=`http://localhost:8000/storage/${response.foto}`;
+        console.log(this.fotoPerfil);
       },
       error:(err)=>{
          console.log(err);

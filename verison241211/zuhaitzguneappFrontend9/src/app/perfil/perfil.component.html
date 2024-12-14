@@ -3,7 +3,7 @@
   <div class="loader" id="loader"></div>
 </div>
 <div class="img-init-cont">
-  <img *ngIf="foto; else icon" [src]="foto" class="img-fluid img-init" alt="Foto de perfil">
+  <img *ngIf="fotoPerfil; else icon" [src]="fotoPerfil" class="img-fluid img-init" alt="Foto de perfil">
   <ng-template #icon>
     <i class="fa-solid fa-user fa-xl"></i>
   </ng-template>
