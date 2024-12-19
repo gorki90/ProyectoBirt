@@ -1,0 +1,63 @@
+
+<h1 class="text-center">Datos Biométricos</h1>
+
+<!--<app-datos_menu></app-datos_menu>-->
+<form class="datosForm" [formGroup]="formGroup">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="altura" class="form-label">Altura(m):</label>
+          <input type="number" class="form-control" id="altura" formControlName="altura">
+        </div>
+        <div class="mb-3">
+          <label for="alturaRama" class="form-label">Altura primera rama(m):</label>
+          <input type="number" class="form-control" id="altura_primera_rama" formControlName="altura_primera_rama">
+        </div>
+        <div class="mb-3">
+          <label for="morfologia" class="form-label">Morfologí­a:</label>
+          <input id="morfologia" class="form-control" formControlName="morfologia" type="text">
+          <!--            <select class="form-select mb-3" name="morfologia" id="morfologia" aria-label="Morfologí­a">
+                <option value="0" selected>Mor1</option>
+                <option value="1">Mor2</option>
+                <option value="2">Mor3</option>
+                <option value="3">Mor4</option>
+              </select>    -->
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="diametro" class="form-label">Diametro(cm):</label>
+          <input type="number" class="form-control" id="diametro" formControlName="diametro">
+        </div>
+        <div class="mb-3">
+          <label for="alcorque" class="form-label">Tipo alcorque:</label>
+          <input id="tipo_alcorque" class="form-control" formControlName="tipo_alcorque" type="text">
+        </div> <!--            <select class="form-select mb-3" name="alcorque" id="alcorque" aria-label="Alcorque">
+                <option value="0" selected>Alc1</option>
+                <option value="1">Alc2</option>
+                <option value="2">Alc3</option>
+                <option value="3">Alc4</option>
+              </select> 
+            <label for="estado" class="form-label">Estado</label>
+            <select class="form-select mb-3" name="estado" id="estado" aria-label="Estado">
+                <option value="0" selected>Est1</option>
+                <option value="1">Est2</option>
+                <option value="2">Est3</option>
+                <option value="3">Est4</option>
+              </select> -->
+        <div class="mb-3">
+          <label for="disposicion" class="form-label">Disposición:</label>
+          <input id="disposicion" class="form-control" formControlName="disposicion" type="text">
+        </div>
+      </div>
+      <div class="fluid-container progreso">
+        <div class="progress" role="progressbar" aria-label="Basic example" 
+      aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 50%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<!--      <app-datos_menufooter></app-datos_menufooter> -->

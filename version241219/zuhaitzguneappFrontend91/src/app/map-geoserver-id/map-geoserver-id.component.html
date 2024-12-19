@@ -1,0 +1,54 @@
+<!-- <p>map-geoserver-id works!</p> -->
+
+<h1 class="text-center">Mapa</h1>
+<!-- Barra informativa visible en modo edición -->
+<div *ngIf="isEditMode" class="alert alert-info text-center" role="alert">
+  <span class="text-dark text-uppercase fw-bold fs-2">Modo edición activado: </span> 
+  <span class="text-dark fs-2">Haz clic en un árbol para editar sus datos.</span>
+</div>
+<!-- Barra informativa visible en modo creación -->
+<div *ngIf="isCreateMode" class="alert alert-info text-center" role="alert">
+  <span class="text-dark text-uppercase fw-bold fs-2">Modo creación activado: </span> 
+  <span class="text-dark fs-2">Haz clic en un punto del mapa para crear un arbol.</span>
+</div>
+<div id="map" class="map container-fluid"></div>
+
+<div class="container-fluid contMapa">
+  <div class="row">  
+    <div class="d-flex justify-content-evenly">
+      <button *ngIf="isAuthenticated()" class="btn-mapa" (click)="toggleCreateMode()" [class.active]="isCreateMode">
+        Crear Árbol
+      </button>
+      <!-- Botón para activar/desactivar el modo de edición -->
+      <button *ngIf="isAuthenticated()"  class="btn-mapa" (click)="toggleEditMode()" [class.active]="isEditMode">
+       Editar Árbol
+      </button>
+      </div>
+</div>
+    <div class="row">  
+        <div class="col">
+            <div class="container-fluid">
+                <form class="d-flex datosForm" role="search">
+                  <input class="form-control me-2" id="barrioCalle" name="barrioCalle" [(ngModel)]="barrioCalle" type="text" placeholder="Calle/Ciudad" aria-label="Search">
+                  <button class="btn-mapa" type="button"  (click)="onSearchClick('barrioCalle')">Buscar</button>
+                </form>
+              </div>
+              <div *ngIf="errorBarrio" class="alert alert-danger" role="alert">
+                Por favor, ingresa un valor válido para el filtro.
+              </div>
+        </div>
+        <div class="col">
+            <div class="container-fluid">
+                <form class="d-flex datosForm" role="search">
+                  <input class="form-control me-2" id="codigo" name="codigo" [(ngModel)]="codigo" type="text" placeholder="Código árbol" aria-label="Search">
+                  <button class="btn-mapa btn-outline-success" type="button"  (click)="onSearchClick('codigo')">Buscar</button>
+                </form>
+              </div>
+              <div *ngIf="errorCodigo" class="alert alert-danger" role="alert">
+                Por favor, ingresa un valor válido para el filtro.
+              </div>
+        </div>
+    </div>
+</div>
+
+<!--<div id="map" class="map"></div>-->
