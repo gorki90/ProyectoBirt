@@ -30,19 +30,20 @@
       <div class="row tareasLista">
         <!-- Información del árbol -->
         <div class="col-2">
-          <img class="img-fluid"  style="width: 20%; height: 30%;" [src]='arbol.imageUrl' />
+          <img class="img-fluid img-fixed" [src]='arbol.imageUrl' />
         </div>
-        <div class="col">
-          <h5 style="font-size: 1.75rem;" class="pb-3">Codigo: {{ arbol.codigo }}</h5>
-          <p >Nombre común: {{ arbol.nombre_comun || 'No disponible' }}</p>
-          <p >Ubicación: {{ arbol.barrio || 'Sin barrio' }}</p>
+        <div class="col border-end">
+          <p class="pTareas">Codigo: {{ arbol.codigo }}</p>
+          <p class="pTareas">Nombre común: {{ arbol.nombre_comun || 'No disponible' }}</p>
+          <p class="pTareas">Ubicación: {{ arbol.barrio || 'Sin barrio' }}</p>
         </div>
 
         <!-- Lista de tareas -->
          <!-- con stopPropagation evito que al hacer chec en una tarea 
               se dispare el evento click y me envíe a mostrar atributos -->
               <div class="col-6">
-                <table style="border-spacing: 10px; width: 100%;">
+                <div class="table-responsive">
+                <table class="table table-striped">
                   <thead>
                     <tr>
                       <th>Finalizar</th>
@@ -64,20 +65,21 @@
                           (click)="$event.stopPropagation()"
                         />
                       </td>
-                      <td>{{ tarea.tipo_accion || 'Tarea sin descripción' }}</td>
-                      <td>{{ tarea.prioridad || 'Ninguna' }}</td>
+                      <td>{{ capitalize(tarea.tipo_accion) || 'Tarea sin descripción' }}</td>
+                      <td>{{ capitalize(tarea.prioridad) || 'Ninguna' }}</td>
                       <td>{{ tarea.fecha_comienzo || 'Sin fecha' }}</td>
                       <td>{{ tarea.fecha_limite || 'Sin fecha' }}</td>
-                      <td>{{ tarea.estado_accion || 'Sin estado' }}</td>
+                      <td>{{ capitalize(tarea.estado_accion) || 'Sin estado' }}</td>
                     </tr>
                   </tbody>
                 </table>
+              </div>
               </div>
               
               <div class="col-1">
                 <button type="button" (click)="forzarRecarga()" class="btn" style="
                 display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; padding: 0;  border: none; border-radius: 50%;">
-                <i class="fa-solid fa-floppy-disk fa-4x"></i>
+                <i class="fa-solid fa-floppy-disk fa-2x"></i>
                 </button>
               </div>
       </div>

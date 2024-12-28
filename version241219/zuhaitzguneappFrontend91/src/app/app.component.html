@@ -1,3 +1,4 @@
+<!--Menú sin acceso-->
 <nav *ngIf="!isAuthenticated()" class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <img class="img-fluid w-25" src="/assets/img/Zuhaitzguneapp.png">
@@ -20,7 +21,7 @@
     </div>
   </div>
 </nav>
-
+<!--Menú con acceso-->
 <nav *ngIf="isAuthenticated()" class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <img class="img-fluid w-25" src="/assets/img/Zuhaitzguneapp.png">
@@ -44,7 +45,7 @@
         <a class="nav-link" [routerLink]="['/salir']"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
         <a class="nav-link" [routerLink]="['/formulario-definitivo']"><i class="fa-solid fa-map"></i> Registrar
           Datos</a>
-        <!-- <a class="nav-link" [routerLink]="['/lista']"><i class="fa-solid fa-map"></i> Mostrar atributos</a> -->
+        <!--Icono y función para cambiar tema-->
         <a class="nav-link" (click)="toggleTheme()">
           <i *ngIf="currentTheme === 'light'" class="fa-solid fa-moon"></i>
           <i *ngIf="currentTheme === 'dark'" class="fa-solid fa-sun"></i>

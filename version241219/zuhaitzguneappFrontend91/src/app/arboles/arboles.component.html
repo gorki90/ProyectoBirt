@@ -5,11 +5,11 @@
     <div *ngFor="let item of arboles" class="col-md-4">
       <div class="card" style="width: 18rem;">
 
-        <img class="img-card img-fluid " [src]='item.imageUrl' class="card-img-top" alt="imagen arbol">
+        <img class="img-fixed2" [src]='item.imageUrl' alt="imagen arbol">
 
         <div class="card-body">
           <h5 class="card-title">{{ item.nombre_comun }}</h5>
-          <p class="card-text">
+          <p class="card-text pTareas">
             Barrio: {{item.barrio}} <br> Calle: {{item.calle}}
           </p>
           <button class="btn-cards" (click)="enviarMostrar(item)"> {{ item.codigo }}</button>

@@ -143,6 +143,11 @@ import { ImageService } from '../servicio/image.service';
   isAuthenticated(): boolean {
     return this.wfsService.isAuthenticated();
   }
+
+  capitalize(value: string): string {
+    if (!value) return '';
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
   
 }
 
