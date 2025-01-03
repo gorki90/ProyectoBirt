@@ -1,0 +1,19 @@
+<!--
+    <p>error works!</p>
+<img src="../../../assets/error404.jpg" alt="">
+-->
+
+<!-- <img src="../../../assets/error404.png" alt=""> -->
+
+<div class="error-container">
+    <h1>¡Algo salió mal!</h1>
+ <!-- Mostrar los mensajes de error como una lista -->
+    <ul *ngIf="errorMessages.length > 0">
+        <li *ngFor="let message of errorMessages">{{ message }}</li>
+    </ul>
+  
+  <!-- Mostrar un mensaje predeterminado si no hay errores -->
+  <p *ngIf="errorMessages.length === 0">Ocurrió un error desconocido.</p>
+  
+  <button (click)="goBack()">Volver</button>
+</div>

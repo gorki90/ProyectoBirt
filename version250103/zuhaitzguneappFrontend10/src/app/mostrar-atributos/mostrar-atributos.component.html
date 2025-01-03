@@ -1,0 +1,79 @@
+<div *ngIf="attributes" class="container-fluid border p-4 rounded">
+  <h1 class="text-center">Atributos del árbol</h1>
+  <div class="img-init-cont text-center mb-4">
+    <img class="img-fluid img-init img-fixed" [src]="imageUrl" alt="Imagen del árbol">
+  </div>
+  <div class="d-flex justify-content-start mb-3">
+    <button *ngIf="isAuthenticated()" class="btn btn-primary me-3" (click)="toggleEditMode()" [class.active]="isEditMode">
+      <i class="fa-solid fa-pencil-alt fa-xl"></i> Editar
+    </button>
+    <button *ngIf="isAuthenticated()" class="btn btn-primary" (click)="mapaid()">
+      <i class="fa-solid fa-map fa-xl"></i> Mapa
+    </button>
+  </div>
+
+  <!-- Contenido en dos columnas -->
+  <div class="row">
+    <div class="col-md-6 border-end">
+      <div class="btn-atributos-group mb-3">
+        <button class="btn btn-secondary btn-atributos" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCaracteristicas" aria-expanded="false" aria-controls="collapseCaracteristicas">
+          Características del árbol
+        </button>
+      </div>
+      <div class="collapse" id="collapseCaracteristicas">
+        <div class="card-atributos card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let key of attributeKeys">
+                <tr *ngIf="key !== 'tasks' && attributes[key]">
+                  <td>{{ capitalize(key) }}</td>
+                  <td>{{ capitalize(attributes[key]) }}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="btn-atributos-group mb-3">
+        <button class="btn btn-secondary btn-atributos" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTareas" aria-expanded="false" aria-controls="collapseTareas">
+          Tareas
+        </button>
+      </div>
+      <div class="collapse" id="collapseTareas">
+        <div class="card-atributos card-body">
+          <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Tarea</th>
+                <th>Prioridad</th>
+                <th>Estado</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Límite</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of attributes['tasks']">
+                <td>{{ capitalize(task.tipo_accion) }}</td>
+                <td>{{ capitalize(task.prioridad) }}</td>
+                <td>{{ capitalize(task.estado_accion) }}</td>
+                <td>{{ capitalize(task.fecha_comienzo) }}</td>
+                <td>{{ capitalize(task.fecha_limite) }}</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

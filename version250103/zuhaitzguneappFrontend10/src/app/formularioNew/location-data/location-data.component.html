@@ -1,0 +1,93 @@
+
+<h1 class="text-center">Identificación y Localización</h1>
+
+<!--<app-datos_menu></app-datos_menu>-->
+<form class="datosForm" [formGroup]="formGroup">
+  <div class="container text-center">
+    <div class="row">
+
+      <div class="col">
+        <div class="mb-3">
+          <label for="codigo" class="form-label">Código:</label>
+          <input id="codigo" class="form-control" formControlName="codigo" type="text">
+        </div>
+        <div class="mb-3">
+          <label for="especie" class="form-label">Especie:</label>
+          <input id="especie" class="form-control" formControlName="especie" type="text">
+        </div>
+        <div class="mb-3">
+          <label for="nombreComun" class="form-label">Nombre común:</label>
+          <input type="text" class="form-control" id="nombre_comun" formControlName="nombre_comun">
+        </div>
+      
+      
+      <!-- Agregar foto-->
+        <div class="mb-3">
+        
+
+          <label for="foto" class="form-label">Adjuntar foto</label>
+          <input type="file" (change)="onPhotoSelected($event)"  class="form-control" id="foto"  accept="image/*"
+            capture="environment">
+
+          <!-- El campo 'foto' ya solo contiene la ruta del archivo, no es un campo de tipo 'file' -->
+          <input type="hidden" formControlName="foto"  />
+
+        </div>
+        <!-- Botón para alternar la vista previa -->
+        <div *ngIf="selectedFile && !showPreview">
+          <button type="button" class="btn btn-primary" (click)="togglePreview(selectedFile)">Vista previa</button>
+        </div>
+
+        <!-- Vista previa de la foto -->
+        <div *ngIf="showPreview" (click)="hidePreview()" class="preview-container">
+          <img [src]="photoPreview" alt="Vista previa" class="img-fluid" />
+        </div>
+        <!-- si ya hay foto me muestra el nombre de la foto -->
+        <div *ngIf="nombre_archivo" class="mb-2">
+          <label for="foto" class="form-label">Foto actual: </label>
+          <br>
+      <!-- Mostrar el nombre de la foto si ya está presente -->
+        
+           {{ nombre_archivo }}
+      </div>
+      </div>
+    
+
+
+      <div class="col">
+
+        <div class="mb-3">
+          <label for="barrio" class="form-label">Barrio:</label>
+          <input id="barrio" class="form-control" formControlName="barrio" type="text">
+        </div>
+        <div class="mb-3">
+          <label for="calle" class="form-label">Calle:</label>
+          <input id="calle" class="form-control" formControlName="calle" type="text">
+        </div>
+        <div class="mb-3">
+          <label for="notas_ubicacion" class="form-label">Notas ubicación:</label>
+          <input id="notas_ubicacion" class="form-control" formControlName="notas_ubicacion" type="text">
+        </div>
+        <!-- <div class="mb-3">
+          <label for="coordenadaX" class="form-label">Coordenada X:</label>
+          <input id="coordenadaX" class="form-control" formControlName="coordenadaX" type="number">
+        </div>
+        <div class="mb-3">
+          <label for="coordenadaY" class="form-label">Coordenada Y:</label>
+          <input id="coordenadaY" class="form-control" formControlName="coordenadaY" type="number">
+        </div> -->
+      </div>
+
+
+
+      <div class="fluid-container progreso">
+          <div class="progress" role="progressbar" aria-label="Basic example" 
+          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 25%"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!--      <app-datos_menufooter></app-datos_menufooter> -->
