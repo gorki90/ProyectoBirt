@@ -15,7 +15,7 @@ class AlturaRama implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         // Obtener todas las tareas
-        $altura = request()->input("altura"); // Si no existen tareas, devuelve un array vacío
+        $altura = request()->input('dasometricData.altura'); // Si no existen tareas, devuelve un array vacío
 
 
                 if ($value !== null && $value >  $altura ) {
