@@ -1,0 +1,45 @@
+
+<h1 class="text-center">Datos Biométricos</h1>
+
+<!--<app-datos_menu></app-datos_menu>-->
+<form class="datosForm" [formGroup]="formGroup">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md">
+        <div class="mb-3 col-12">
+          <label for="altura" class="form-label">Altura(m):</label>
+          <input type="number" class="form-control" id="altura" formControlName="altura">
+        </div>
+        <div class="mb-3 col-12">
+          <label for="alturaRama" class="form-label">Altura primera rama(m):</label>
+          <input type="number" class="form-control" id="altura_primera_rama" formControlName="altura_primera_rama">
+        </div>
+        <div class="mb-3 col-12">
+          <label for="morfologia" class="form-label">Morfologí­a:</label>
+          <input id="morfologia" class="form-control" formControlName="morfologia" type="text">
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="mb-3 col-12">
+          <label for="diametro" class="form-label">Diametro(cm):</label>
+          <input type="number" class="form-control" id="diametro" formControlName="diametro">
+        </div>
+        <div class="mb-3 col-12">
+          <label for="alcorque" class="form-label">Tipo alcorque:</label>
+          <input id="tipo_alcorque" class="form-control" formControlName="tipo_alcorque" type="text">
+        </div> 
+        <div class="mb-3 col-12">
+          <label for="disposicion" class="form-label">Disposición:</label>
+          <input id="disposicion" class="form-control" formControlName="disposicion" type="text">
+        </div>
+      </div>
+      <div class="fluid-container progreso">
+        <div class="progress" role="progressbar" aria-label="Basic example" 
+      aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 50%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<!--      <app-datos_menufooter></app-datos_menufooter> -->

@@ -1,0 +1,99 @@
+<div *ngIf="attributes" class="container-fluid border p-4 rounded">
+  <h1 class="text-center">Atributos del árbol</h1>
+  <div class="img-init-cont text-center mb-4">
+    <img class="img-fluid img-init img-fixed" [src]="imageUrl" alt="Imagen del árbol">
+  </div>
+  <div class="d-flex justify-content-start mb-3">
+    <button *ngIf="isAuthenticated()" title="Editar" class="btn btn-primary me-3" (click)="toggleEditMode()" [class.active]="isEditMode">
+      <i class="fa-solid fa-pencil-alt fa-xl"></i> 
+      <span class="d-none d-sm-inline"> Editar</span>
+    </button>
+    <button *ngIf="isAuthenticated()" title="Mapa" class="btn btn-primary" (click)="mapaid()">
+      <i class="fa-solid fa-map fa-xl"></i> 
+      <span class="d-none d-sm-inline"> Mapa</span>
+    </button>
+  </div>
+
+  <!-- Contenido en dos columnas fa-solid fa-list-check-->
+  <div class="row">
+    <div class="col-md-6 border-end">
+      <div class="btn-atributos-group mb-3">
+        <button class="btn btn-secondary btn-atributos" title="Características" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCaracteristicas" aria-expanded="false" aria-controls="collapseCaracteristicas">
+          <span class="d-none d-sm-inline">Características del árbol</span> <!-- Solo se muestra en pantallas medianas en adelante -->
+          <i class="fa-solid fa-th-list d-inline d-sm-none"></i> <!-- Solo se muestra en pantallas pequeñas -->
+        </button>
+      </div>
+      <div class="collapse" id="collapseCaracteristicas">
+        <div class="card-atributos card-body table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let key of attributeKeys">
+                <tr *ngIf="key !== 'tasks' && attributes[key]">
+                  <td>{{ capitalize(key) }}</td>
+                  <td>{{ capitalize(attributes[key]) }}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="btn-atributos-group mb-3 mt-3">
+        <button class="btn btn-secondary btn-atributos" title="Tareas" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTareas" aria-expanded="false" aria-controls="collapseTareas">
+          <span class="d-none d-sm-inline">Tareas</span> <!-- Solo se muestra en pantallas medianas en adelante -->
+          <i class="fa-solid fa-list-check d-inline d-sm-none"></i> <!-- Solo se muestra en pantallas pequeñas -->
+        </button>
+      </div>
+      <div class="collapse" id="collapseTareas">
+        <div class="card-atributos card-body">
+          <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Tarea</th>
+                <th class="d-none d-sm-table-cell ">Prioridad</th>
+                <th class="d-none d-sm-table-cell ">Estado</th>
+                <th class="d-none d-lg-table-cell ">Fecha Inicio</th>
+                <th class="d-none d-lg-table-cell ">Fecha Límite</th>
+                <th class="d-none d-lg-table-cell ">Descripción acción</th>
+                <th class="d-lg-none text-center">Detalles</th> <!-- Columna para mostrar el botón -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of attributes['tasks'];  let i = index">
+                <td>{{ capitalize(task.tipo_accion) }}</td>
+                <td class="d-none d-sm-table-cell ">{{ capitalize(task.prioridad) }}</td>
+                <td class="d-none d-sm-table-cell ">{{ capitalize(task.estado_accion) }}</td>
+                <td class="d-none d-lg-table-cell ">{{ capitalize(task.fecha_comienzo) }}</td>
+                <td class="d-none d-lg-table-cell ">{{ capitalize(task.fecha_limite) }}</td>
+                <td class="d-none d-lg-table-cell ">{{ capitalize(task.descripcion_accion) }}</td>
+                <td class="d-lg-none text-start">
+                  <button class="btn btn-sm btn-primary  border shadow-lg" title="Ver más/Ocultar"(click)="toggleDetails(i)">
+                    <span  class="d-none d-sm-inline">{{ showDetails[i] ? 'Ocultar' : 'Ver más' }}</span>
+                    <i class="fa-solid d-sm-none" [ngClass]="showDetails[i] ? 'fa-eye-slash' : 'fa-eye'"></i>
+                  </button>
+                  <div *ngIf="showDetails[i]">
+                    <span class="d-inline d-sm-none"><strong >Prioridad:</strong> <br></span>  <span class="d-inline d-sm-none ">{{ task.prioridad}} <br></span> 
+                    <span class="d-inline d-sm-none"><strong >Estado:</strong> <br></span> <span class="d-inline d-sm-none ">{{ task.estado_accion}} <br></span> 
+                    <span class="d-inline d-lg-none"><strong >Fecha Inicio:</strong> <br> </span><span class="d-inline d-lg-none">{{ task.fecha_comienzo }} <br></span> 
+                    <span class="d-inline d-lg-none"><strong>Fecha Límite:</strong> <br> </span><span class="d-inline d-lg-none">{{ task.fecha_limite }} <br></span> 
+                    <span class="d-inline d-lg-none"><strong>Descripción:</strong> <br> </span><span class="d-inline d-lg-none">{{ capitalize(task.descripcion_accion) }}</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

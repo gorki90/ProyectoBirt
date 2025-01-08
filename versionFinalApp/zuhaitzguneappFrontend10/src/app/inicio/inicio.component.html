@@ -1,0 +1,26 @@
+<div class="fondoDark">
+    <div class="descInicio">
+        <h1 class="text-center tit-app">Bienvenid&#64; a Zuhaitzguneapp</h1><h1 class="text-center" *ngIf="isAuthenticated()">{{username}}</h1>
+        <div class="img-init-cont">
+            <img class="img-fluid img-init" src="/assets/img/Zuhaitzguneapp.png">
+        </div>
+        <h2 class="text-center descr">Somos la web de consulta, registro y seguimiento del arbolado urbano. Colabora a mantener una zona urbana ecológica y libre de riesgos</h2>
+    </div>
+    <div class="btn-container">
+
+        <button title="Mapa" class="btn d-inline-block" style="font-size: 1.5rem;" (click)="mapaid()">
+            <i class="fa-solid fa-map fa-xl"></i>
+            <span class="d-none d-sm-inline"> Mapa</span> <!-- Oculta el texto en pantallas pequeñas -->
+        </button>
+
+
+        <button *ngIf="!isAuthenticated()" title="Acceso" class="btn d-inline-block" style="font-size: 1.5rem;" (click)="acceso()">
+            <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+            <span class="d-none d-sm-inline"> Acceso</span> <!-- Ocultar texto en pantallas pequeñas -->
+        </button>
+        <button *ngIf="isAuthenticated()" title="Salir" class="btn d-inline-block" style="font-size: 1.5rem;" (click)="salir()">
+            <i class="fa-solid fa-right-from-bracket fa-xl"></i>
+            <span class="d-none d-sm-inline"> Salir</span> <!-- Ocultar texto en pantallas pequeñas -->
+        </button>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+
+
+<app-datos_menu (formSelected)="recibirSection($event)"></app-datos_menu>
+
+
+<form [formGroup]="treeForm" (ngSubmit)="onSubmit()">
+
+  <app-location-data  (fileSelected)="onFileSelected($event)"  *ngIf="sectionRecibida === 'locationData'" [formGroup]="localizacion">
+  </app-location-data>
+  <!-- Seccio de Datos dasometricos -->
+
+  <app-dasometric-data *ngIf="sectionRecibida === 'dasometricData'" [formGroup]="dasometria">
+  </app-dasometric-data>
+
+  <!-- Seccion de Estado Sanitario -->
+
+  <app-health-status *ngIf="sectionRecibida === 'healthStatus'" [formGroup]="estadoSanitario">
+  </app-health-status>
+
+  <!-- Seccion de Tareas -->
+
+  <app-tasks *ngIf="sectionRecibida === 'tasks'" [formGroup]="treeForm">
+  </app-tasks>
+
+  
+  <!-- propiedades para funcionamiento de flechas -->
+  <app-datos_menufooter
+    [currentSection]="sectionRecibida"
+    [sections]="sections"
+    (sectionChanged)="recibirSection($event)"
+    [arbolId]="arbolidEdit">
+  </app-datos_menufooter>
+</form>
